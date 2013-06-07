@@ -4,7 +4,9 @@
   <title>PhotoBlog</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
+  <%= auto_discovery_link_tag(:atom, posts_path(:atom)) %>
   <%= csrf_meta_tags %>
+
 </head>
 <body>
 
