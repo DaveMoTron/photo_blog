@@ -2,7 +2,10 @@ PhotoBlog::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   root :to => 'posts#index'
-  ActiveAdmin.routes(self)
+  unless Rails.env.test?
+    devise_for :admin_users, ActiveAdmin::Devise.config
+    ActiveAdmin.routes(self)
+  end
 
   resources :posts do
     resources :comments, :only => [:create]

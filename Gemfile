@@ -28,7 +28,7 @@ group :assets do
 end
 
 gem 'redcarpet'
-gem 'activeadmin'
+gem 'activeadmin', '0.5.0'
 gem "meta_search", '>= 1.1.0.pre'
 
 gem "jquery-rails", "2.3.0"
