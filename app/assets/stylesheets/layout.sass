@@ -1,15 +1,60 @@
-* 
-  font-family: "Open Sans", helvetica
+$dark-grey: #555
+$blue: #3FA9F5
+
+@-webkit-keyframes backgroundScroll
+  from
+    background-position: 0% bottom
+  to 
+    background-position: 5000% bottom
+
+@-moz-keyframes backgroundScroll
+  from
+    background-position: 0% bottom
+  to 
+    background-position: 5000% bottom
+
+@-o-keyframes backgroundScroll
+  from
+    background-position: 0% bottom
+  to 
+    background-position: 5000% bottom
+
+
+@keyframes backgroundScroll
+  from
+    background-position: 0% bottom
+  to 
+    background-position: 5000% bottom
+
+html
+  background: white image-url('stamp.png') no-repeat left bottom
+  height: 100%
 
 body
-  background: #555
-  color: white
+  background-color: transparent
+  font-family: 'avenirnext', helvetica, sans-serif
 
-#application-header 
-  padding: 10px 0
-  width: 100%
-  background: #222
-  color: white
-  #header-logo-link img
-    float: left
-    height: 30px
+a
+  color: $blue
+  &:hover
+    color: darken($blue, 10%)
+
+header#application
+  margin-top: 20px
+  margin-bottom: 20px
+  height: 130px
+  background-image: image-url('skyline.png')
+  background-repeat: repeat-x
+  background-size: auto 110px
+  -webkit-animation: backgroundScroll linear 6000s infinite
+  a#header-logo-link
+    color: $dark-grey
+    text-decoration: none
+    h1
+      font-family: 'thirsty', serif
+    img
+      float: left
+      height: 55px
+      margin-right: 10px
+
+      

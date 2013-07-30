@@ -1,5 +1,21 @@
-<h1>Listing posts</h1>
-
-<%= render :partial => @posts %>
-
-<%= link_to 'New Post', new_post_path %>
+<div class='row-fluid'>
+  <section class='span12' id="posts-index">
+    <ol id="posts">
+      <% @posts.each do |post| %>
+        <li class='post-title'>
+          <%= link_to post do %>
+            <div class='date'>
+              <%= post.created_at.strftime('%d') %>
+              <span><%= post.created_at.strftime('%b') %></span>
+            </div>
+            <%= image_tag post.thumbnail_url, :class => 'post-thumbnail' %>
+            <div class='title'>
+              <h2><%= post.title %></h2>
+              <p><%= post.location %></p>
+            </div>
+          <% end %>
+        </li>
+      <% end %>
+    </ol>
+  </section>
+</div>

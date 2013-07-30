@@ -1,6 +1,6 @@
 PhotoBlog::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
-
+  config.action_mailer.default_url_options = { :host => 'photo_blog.dev' }
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
@@ -34,4 +34,11 @@ PhotoBlog::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # # Add the fonts path
+  # config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
+
+  # # Precompile additional assets
+  # config.assets.precompile += %w( .svg .eot .woff .ttf )
+
 end
