@@ -50,8 +50,12 @@ li.post-title
     text-decoration: none
     &:hover div.title h2
       color: darken($blue, 10%)
+  p
+    margin: 0
 
-article.post 
+article.post
+  .post-title
+    margin-bottom: 10px 
   div#map
     position: absolute
     width: 167px
@@ -59,32 +63,31 @@ article.post
   section.body
     float: left
     padding-left: $left-padding
-    img
+    a.photo
+      background: black url('flickr-link.png') no-repeat 50% 50%
+      background-size: auto 30px
       display: block
       float: left
-      width: 100%
+      overflow: visible
       margin-bottom: 10px
-      padding: 15px
-      background-color: white
-      position: relative
+      border: 15px solid white
       +box-sizing(border-box)
       +box-shadow(0 0 8px #ccc)
-      :after
-        content: " "
+      img
         width: 100%
-        height: 100%
-        position: absolute
-        z-index: 10
-        background-color: black
-    img.half
-      width: 49%
-      margin-right: 2%
-      padding: 10px
-      &:nth-child(2n+2)
-        margin-right: 0
-    img.third
-      width: 32%
-      padding: 5px
-      margin-right: 2%
-      &:nth-child(3n+3)
-        margin-right: 0
+        +backface-visibility(hidden)
+        +transition(opacity 100ms linear)
+        &:hover
+          opacity: .65
+      &.half
+        width: 49%
+        margin-right: 2%
+        border-width: 10px
+        &:nth-child(2n+2)
+          margin-right: 0
+      &.third
+        width: 32%
+        border-width: 5px
+        margin-right: 2%
+        &:nth-child(3n+3)
+          margin-right: 0
