@@ -33,7 +33,7 @@ gem 'redcarpet'
 gem "meta_search", '>= 1.1.0.pre'
 gem "jquery-rails", "2.3.0"
 
-gem 'activeadmin'
+gem 'activeadmin', "0.5.1"
 
 
 # To use ActiveModel has_secure_password

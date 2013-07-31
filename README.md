@@ -8,6 +8,6 @@ How to get running in development mode
 --------------------------------------
 
     $ bundle install
-    $ gem install foreman
-    $ foreman start
+    $ rake db:setup
 
+Then use POW to view the site as normal
