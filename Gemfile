@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
-ruby '1.9.3'
+ruby '2.0.0'
 
 gem 'rails', '3.2.13'
+gem 'unicorn'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -29,10 +30,10 @@ group :assets do
 end
 
 gem 'redcarpet'
-gem 'activeadmin'
 gem "meta_search", '>= 1.1.0.pre'
-
 gem "jquery-rails", "2.3.0"
+
+gem 'activeadmin', "0.5.1"
 
 
 # To use ActiveModel has_secure_password
