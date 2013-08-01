@@ -1,11 +1,11 @@
-<div class='row-fluid'>
-  <section class='span12' id="posts-detail">
+<div class='container'>
+  <section id="posts-detail">
 
   <p id="notice"><%= notice %></p>
 
   <%= render :partial => @post %>
 
-  <h2>Comments</h2>
+  <!-- <h2>Comments</h2>
   <div id="comments">
     <%= render :partial => @post.comments %>
   </div>
@@ -16,5 +16,5 @@
       <%= f.text_area :body %>
     </p>
     <p><%= f.submit "Add comment" %></p>
-  <% end %>
+  <% end %> -->
 </div>

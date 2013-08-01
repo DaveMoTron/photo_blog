@@ -1,24 +1,26 @@
-<div class='row-fluid'>
-  <section class='span12' id="posts-index">
-    <ol id="posts">
-      <% @posts.each do |post| %>
-        <li class='post-title'>
-          <%= link_to post do %>
-            <div class='date'>
-              <%= post.created_at.strftime('%d') %>
-              <span><%= post.created_at.strftime('%b') %></span>
-            </div>
-            <%= image_tag post.thumbnail_url, :class => 'post-thumbnail' %>
-            <div class='title'>
-              <h2><%= post.title %></h2>
-              <p><%= post.location %></p>
-            </div>
-          <% end %>
-        </li>
-      <% end %>
-      <% if @posts.count == 0 %>
-        <li class='empty'>No posts here</li>
-      <% end %>
-    </ol>
-  </section>
+<div class='container'>
+  <div class='row' id="posts-index">
+    <section class='col-lg-12'>
+      <ol id="posts">
+        <% @posts.each do |post| %>
+          <li class='post-title'>
+            <%= link_to post do %>
+              <div class='title-date'>
+                <%= post.created_at.strftime('%d') %>
+                <span><%= post.created_at.strftime('%b') %></span>
+              </div>
+              <%= image_tag post.thumbnail_url, :class => 'post-thumbnail' %>
+              <div class='title-info'>
+                <h2><%= post.title %></h2>
+                <p><%= post.location %></p>
+              </div>
+            <% end %>
+          </li>
+        <% end %>
+        <% if @posts.count == 0 %>
+          <li class='empty'>No posts here</li>
+        <% end %>
+      </ol>
+    </section>
+  </div>
 </div>

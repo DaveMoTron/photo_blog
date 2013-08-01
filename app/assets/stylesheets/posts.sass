@@ -6,6 +6,41 @@ $blue: #3FA9F5
 $dark-grey: #555
 $left-padding: 187px
 
+div.title-date
+  font-family: 'thirsty', serif
+  background-color: #efefef
+  text-align: center
+  font-size: 2.5em
+  +box-sizing(border-box)
+  width: 35%
+  line-height: 1em
+  margin-right: 5%
+  padding: 2px 10px 3px
+  color: $blue
+  span
+    background-color: $blue
+    color: white
+    font-size: .5em
+    display: block
+    line-height: 1em
+    margin: 0 -10px -3px
+    padding: 5px 5px 8px
+
+img.title-thumbnail
+  width: 60%
+
+div.title-info
+  h2
+    margin: 0
+    text-transform: uppercase
+    color: $dark-grey
+    line-height: 1em
+    font-size: 1.8em
+    font-family: 'gothic', helvetica, sans-serif
+    +transition(color 75ms linear)
+  p
+    margin: 0
+
 li.post-title
   margin-bottom: 20px
 
@@ -14,55 +49,52 @@ li.post-title
   position: relative
   +clearfix
   min-height: 67px
-  div.date
-    font-family: 'thirsty', serif
-    background-color: #efefef
+  .title-date
     position: absolute
-    text-align: center
-    font-size: 2.5em
-    line-height: 1em
-    margin-right: 10px
-    padding: 2px 10px 3px
-    color: $blue
-    span
-      background-color: $blue
-      color: white
-      font-size: .5em
-      display: block
-      line-height: 1em
-      margin: 0 -10px -3px
-      padding: 5px 5px 8px
-  img.post-thumbnail
-    margin-right: 10px
+  .title-thumbnail
     position: absolute
     left: 66px
-  div.title
-    padding-left: $left-padding
-    h2
-      margin: 0
-      text-transform: uppercase
-      color: $dark-grey
-      line-height: 1em
-      font-size: 1.8em
-      font-family: 'gothic', helvetica, sans-serif
-      +transition(color 75ms linear)
   a 
     text-decoration: none
     &:hover div.title h2
       color: darken($blue, 10%)
-  p
-    margin: 0
 
 article.post
+  .fixed.active
+    position: fixed
+    padding-top: 10px
+    top: 0
+    z-index: 50
+    background: white
+  .post-title .fixed.active
+    padding: 10px 20px 5px
+    margin-left: -20px
+  aside.sidebar
+    div.title-date, img.title-thumbnail
+      display: block
+      float: left
+      margin-bottom: 10px
+    div#map
+      clear: both
+      width: 100%
+      height: 167px
+      margin-bottom: 10px
+    div#sharing
+      a img
+        height: 42px
+        opacity: .75
+        +transition(opacity 80ms linear)
+        &:hover
+          opacity: 1
+      h4
+        font-family: 'thirsty', helvetica, sans-serif
+        margin: 0 0 5px
+  
   .post-title
     margin-bottom: 10px 
-  div#map
-    position: absolute
-    width: 167px
-    height: 167px
+  
   section.body
-    float: left
-    padding-left: $left-padding
+    margin-bottom: 50px
     a.photo
       background: black url('flickr-link.png') no-repeat 50% 50%
       background-size: auto 30px
@@ -91,3 +123,11 @@ article.post
         margin-right: 2%
         &:nth-child(3n+3)
           margin-right: 0
+
+@media screen and (max-width: 992px)
+  div.title-date, img.title-thumbnail
+    width: 100px
+    margin: 0 10px 20px 0
+  div#map
+    display: none
+

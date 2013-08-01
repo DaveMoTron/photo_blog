@@ -1,27 +1,42 @@
-<article class='post'>
-  <header class='post-title'>
-    <%= link_to_unless_current post do %>
-      <div class='date'>
+<article class='post row'>
+  <aside class='sidebar col-lg-2'>
+    <div class='fixed'>
+      <div class='title-date'>
         <%= post.created_at.strftime('%d') %>
         <span><%= post.created_at.strftime('%b') %></span>
       </div>
-      <%= image_tag post.thumbnail_url, :class => 'post-thumbnail' %>
-      <div class='title'>
-        <h2><%= post.title %></h2>
-        <p><%= post.location %></p>
+      <%= image_tag post.thumbnail_url, :class => 'title-thumbnail' %>
+      <div id="map"></div>
+      <div id="sharing">
+        <h4>Share it proudly</h4>
+        <a href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href), 'facebook-share-dialog', 'width=626,height=436'); return false;">
+          <%= image_tag('facebook.png') %>
+        </a>
+        <a href="http://pinterest.com/pin/create/button/" class="pin-it-button" count-layout="none">
+          <%= image_tag('pinterest.png') %>
+        </a>
       </div>
-    <% end %>
-  </header>
-  <div id="map"></div>
-  <section class='body'>
-
+    </div>
+  </aside>
+  <section class='body col-lg-10'>
+    <header class='post-title'>
+      <div class='fixed'>
+        <%= link_to_unless_current post do %>
+          <div class='title-info'>
+            <h2><%= post.title %></h2>
+            <p><%= post.location %></p>
+          </div>
+        <% end %>
+      </div>
+    </header>
     <%= markdown(post.body).html_safe %>
   </section>
 </article>
 
+
 <% content_for :javascripts do %>
-  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzHhMcAsG2phQeGvLrb70FTuWYyzx-cZA&sensor=true">
-  </script>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzHhMcAsG2phQeGvLrb70FTuWYyzx-cZA&sensor=true"></script>
+  // <script type="text/javascript" src="http://assets.pinterest.com/js/pinit.js"></script>
   <script type="text/javascript">
     function initialize() {
       var myLatlng = new google.maps.LatLng(<%= post.latitude %>,<%= post.longitude %>);
@@ -34,13 +49,29 @@
 
       var marker = new google.maps.Marker({
           position: myLatlng,
-          map: map,
-          title: 'Hello World!'
+          map: map
       });
     }
 
     google.maps.event.addDomListener(window, 'load', initialize);
 
-    $('a').attr('target', '_blank');
+    $('section.body a').attr('target', '_blank');
+
+    $(window).resize(function(){
+      var sidebarWidth = $('aside.sidebar').width();
+      $('aside div.fixed').width(sidebarWidth);
+    });
+
+    $(window).scroll(function(){
+      var scrollTop = $(window).scrollTop();
+      var headerHeight = 170
+      if (scrollTop >= headerHeight && $(window).width() > 992 ) {
+        var sidebarWidth = $('aside.sidebar').width();
+        $('div.fixed, header.fixed').addClass('active');
+        $('aside div.fixed').width(sidebarWidth);
+      } else if (scrollTop < headerHeight) {
+        $('.fixed').removeClass('active');
+      }
+    });
   </script>
 <% end %>

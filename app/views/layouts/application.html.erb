@@ -18,20 +18,21 @@
   </script>
 </head>
 <body>
-  <header id="application" class='container-fluid'>
-    <div class='row-fluid'>
-      <div class='span12'>
-        <%= link_to root_path, :id => "header-logo-link" do %>
-          <%= image_tag('logomark.png') %>
-          <h1>No Fixed Address</h1>
-          <p>A photoblog of European proportions by Dave Cruikshank</p>
-        <% end %>
+  <header id="application">
+    <div class='container'>
+      <div class='row'>
+        <div class='col-lg-12'>
+          <%= link_to root_path, :id => "header-logo-link" do %>
+            <%= image_tag('logomark.png') %>
+            <h1>No Fixed Address</h1>
+            <p>A photoblog of European proportions by Dave Cruikshank</p>
+          <% end %>
+        </div>
       </div>
     </div>
   </header>
-  <section class='body container-fluid'>
-    <%= yield %>
-  </section>
+  
+  <%= yield %>
 
 </body>
 <%= yield :javascripts %>
